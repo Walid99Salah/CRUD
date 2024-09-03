@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="./CSS/all.min.css" />
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body class="py-3">
+    <h1 class="text-center mb-3">Store Management System</h1>
+
+    <div class="w-75 mx-auto">
+      <div id="alertForm" class="alert alert-danger py-2 text-center d-none">
+        Form Invalid
+      </div>
+
+      <label for="ProName">Product Name :</label>
+      <input
+        oninput="validateInputs(this)"
+        id="ProName"
+        class="form-control mt-2 mb-3"
+        type="text"
+      />
+      <div class="alert alert-danger py-2 d-none">
+        Product Name Must Starts With Capital Letter...
+      </div>
+
+      <label for="ProPrice">Product Price :</label>
+      <input
+        oninput="validateInputs(this)"
+        id="ProPrice"
+        class="form-control mt-2 mb-3"
+        type="text"
+      />
+      <div class="alert alert-danger py-2 d-none">
+        Product Price Must Starts With Price 1000 to 10000
+      </div>
+
+      <label for="ProCategory">Product Category :</label>
+      <input
+        oninput="validateInputs(this)"
+        id="ProCategory"
+        list="list"
+        class="form-control mt-2 mb-3"
+        type="text"
+      />
+      <div class="alert alert-danger py-2 d-none">
+        Product Category Must be (Tv - Mobile - Tab - Watch)
+      </div>
+      <datalist id="list">
+        <option value="Tv"></option>
+        <option value="Mobile"></option>
+        <option value="Tab"></option>
+        <option value="Watch"></option>
+      </datalist>
+
+      <label for="ProDesc">Product Description :</label>
+      <textarea
+        oninput="validateInputs(this)"
+        id="ProDesc"
+        class="form-control mt-2 mb-3"
+      ></textarea>
+      <div class="alert alert-danger py-2 d-none">
+        Product Description Must Starts With 3 Letters...
+      </div>
+
+      <label for="ProImage">Product Image :</label>
+      <input
+        oninput="validateInputs(this)"
+        type="file"
+        id="ProImage"
+        class="form-control mt-2 mb-4"
+      />
+      <div class="alert alert-danger py-2 d-none">
+        Product Image is Required
+      </div>
+
+      <div id="addPro" class="btn btn-outline-light" onclick="addProduct()">
+        Add Product
+      </div>
+      <div
+        id="updatePro"
+        class="btn btn-outline-info d-none"
+        onclick="updateProduct()"
+      >
+        Update Product
+      </div>
+    </div>
+
+    <input
+      id="searchPro"
+      oninput="search()"
+      type="text"
+      class="form-control w-75 mx-auto mt-4"
+      placeholder="Search By Name.."
+    />
+
+    <div class="container mt-5 ps-5">
+      <div id="rowData" class="row gy-4"></div>
+    </div>
+
+    <script src="./JS/index.js"></script>
+  </body>
+</html>
